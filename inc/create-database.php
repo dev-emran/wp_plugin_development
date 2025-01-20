@@ -4,7 +4,7 @@ if (! function_exists('neogym_database_create')) {
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'contact_info';
-        if ($wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") !== $table_name) {
+        if ($wpdb->get_var("SHOW TABLES LIKE `{$table_name}`") !== $table_name) {
             $charset_collate = $wpdb->get_charset_collate();
             $sql             = "CREATE TABLE $table_name (
                 id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -20,4 +20,3 @@ if (! function_exists('neogym_database_create')) {
         }
     }
 }
-register_activation_hook(__FILE__, 'neogym_database_create');
